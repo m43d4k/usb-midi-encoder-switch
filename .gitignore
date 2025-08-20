@@ -1,0 +1,52 @@
+# Arduino / Builder (Arduino IDE, VS Code + Arduino, PlatformIO 共通)
+*.elf
+*.hex
+*.eep
+*.bin           # ESP32/ESP8266 など
+*.uf2           # RP2040 など
+*.map
+*.lss
+*.lst
+*.sym
+*.cfi
+*.o
+*.d
+
+# Arduino ビルド一時ファイル
+build/
+build-*/
+# 通常は追跡不要。必要な場合だけ下を有効化
+# !build/index.cache.txt
+*.last_build_engine.json
+
+# PlatformIO（使う場合）
+.pio/
+.pioenvs/
+.piolibdeps/
+.sconsign.dblite
+.cache/
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+# （arduino.json や c_cpp_properties.json などは無視のまま）
+
+# macOS 一時ファイル
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ゴミ箱／サムネイル
+.Trashes
+*.Trashes
+ehthumbs.db
+Thumbs.db
+
+# エディタ一時ファイル
+*~
+*.swp
+*.swo
