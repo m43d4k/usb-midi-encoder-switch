@@ -1,11 +1,13 @@
 # USB-MIDI Encoder and Switch (ATmega32U4 / Pro Micro) 🎛️
 
-🌍 **Languages**: [English] | [日本語](README-ja.md)
+🌍 **Languages**: **English** | [日本語](README-ja.md)
 
 **Firmware for a compact USB-MIDI controller: one rotary encoder + multiple switches.**
 
 - **MCU/Board**: ATmega32U4 (e.g., **Pro Micro 16 MHz / 5 V**)  
 - **Encoder output**: **Relative MIDI CC (Binary Offset 64±1)**
+
+⬇️ **Download**: [usb_midi_encoder_switch.ino — latest][ino-latest]
 
 ---
 
@@ -13,7 +15,8 @@
 - **Encoder**: 2-phase A/B (**with or without detents**)
 - **Switches**: momentary switches (**normally open: NO**)
 - **LED** (PWM 3/5/6/9/10)  
-  - Mirrors a selected switch’s **internal latch** (ON⇄OFF on each press) — **lets you see toggle states in your DAW (e.g., reference track Solo) without looking at the screen.**
+  - Mirrors a selected switch’s **internal latch** (ON⇄OFF on each press)  
+  — **lets you see toggle states in your DAW (e.g., reference track Solo) without looking at the screen.**
   - **Optional transmit pulse: lights briefly on MIDI send (encoder/switch)**
 - **Encoder feel**
   - **Fine control at low speed** (integrating debounce + full-cycle gating between rest states)
@@ -22,16 +25,7 @@
 
 ---
 
-## Dependencies
-- **MIDIUSB** (`<MIDIUSB.h>`) — Official Arduino “MIDIUSB” library (Leonardo/ATmega32U4 supported)
-
----
-
 ## Hardware
-
-### Pins
-- **Digital I/O**: **D0–D10, D14–D16, D18–D21**
-- **PWM (LED)**: **3 / 5 / 6 / 9 / 10**
 
 ### Recommended parts (examples)
 - **Encoder (no detent)**: ALPS Alpine **EC12E2430803** (2-phase A/B)  
@@ -47,6 +41,14 @@
 ![Schematic](docs/schematic.png)
 
 _Encoder section wiring diagram. Switch & LED wiring omitted._
+
+### Pins
+- **Digital I/O**: **D0–D10, D14–D16, D18–D21**
+- **PWM (LED)**: **3 / 5 / 6 / 9 / 10**
+
+![Pro Micro pinout (ATmega32U4)](docs/pinout-ATmega32U4.png)
+
+*Pinout — Pro Micro (ATmega32U4), digital I/O only (analog/comms omitted)*
 
 ---
 
@@ -157,6 +159,11 @@ constexpr unsigned long LED_PULSE_MS         = 60;
 
 ---
 
+## Dependencies
+- **MIDIUSB** (`<MIDIUSB.h>`) — Official Arduino “MIDIUSB” library (Leonardo/ATmega32U4 supported)
+
+---
+
 ## Troubleshooting
 - **DAW doesn’t recognize it as relative CC**: set the **DAW-side** knob/encoder mode to **Relative / Binary Offset**.  
 - **Direction reversed**: toggle `ENCODER_INVERT` true/false.  
@@ -188,3 +195,5 @@ This project is distributed under the [MIT License](LICENSE).
 
 ## Changelog
 - **v1.0.0** Initial release: full-cycle gating / detent-interval acceleration / output pacing / build-time asserts / RC recommended wiring / LED follow & pulse / BOM
+
+[ino-latest]: https://github.com/m43d4k/usb-midi-encoder-switch/releases/latest/download/usb_midi_encoder_switch.ino

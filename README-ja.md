@@ -1,11 +1,13 @@
 # USB-MIDI Encoder and Switch (ATmega32U4 / Pro Micro) 🎛️
 
-🌍 **Languages**: [日本語] | [English](README.md)
+🌍 **Languages**: **日本語** | [English](README.md)
 
 **ロータリーエンコーダ×1／複数スイッチ対応の USB-MIDI コントローラ用ファームウェア。**
 
 - **対応MCU/ボード**：ATmega32U4（例：**Pro Micro 16 MHz / 5 V**）  
 - **エンコーダ出力仕様**：**相対 MIDI CC（Binary Offset 64±1）**
+
+⬇️ **ダウンロード**: [usb_midi_encoder_switch.ino — latest][ino-latest]
 
 ---
 
@@ -13,7 +15,8 @@
 - **エンコーダ**：2相 A/B（**クリック / ノンクリック両対応**）
 - **スイッチ**：一般的なモーメンタリスイッチ（**ノーマルオープン：NO**）
 - **LED**（PWM 3/5/6/9/10）  
-  - 指定スイッチの**内部ラッチ状態（押すたび ON⇄OFF）**を表示 — **内部ラッチ表示により、DAW のトグル（例：リファレンスの Solo など）を画面を見ずに把握できます。**
+  - 指定スイッチの**内部ラッチ状態（押すたび ON⇄OFF）**を表示  
+    — **内部ラッチ表示により、DAW のトグル（例：リファレンスの Solo など）を画面を見ずに把握できます。**
   - **MIDI 送信時に短く点灯するパルスに対応（任意）**
 - **エンコーダの操作感**
   - **低速は微調整しやすい**（積分デバウンス＋休止→休止のフルサイクルゲーティング）
@@ -22,20 +25,12 @@
 
 ---
 
-## 依存ライブラリ
-- **MIDIUSB**（`<MIDIUSB.h>`）— Arduino公式の「MIDIUSB」ライブラリ（Leonardo/32U4対応）
-
----
-
 ## ハードウェア
-
-### 対応ピン
-- **デジタル入力**：**D0–D10, D14–D16, D18–D21**
-- **PWM（LED）**：**3 / 5 / 6 / 9 / 10**
 
 ### 推奨部品（例）
 - **エンコーダ（ノンクリック）**：ALPS Alpine **EC12E2430803**（2相A/B）  
-  **ノブ径 30 mm 以上推奨（目安 35–40 mm）** —— *EC12E2430803 は回転トルクがやや重めのため*
+  **ノブ径 30 mm 以上推奨（目安 35–40 mm）**
+  —— *EC12E2430803 は回転トルクがやや重めのため*
 - **スイッチ**：モーメンタリ（NO）
 - **プルアップ抵抗**：A/B 各相 **10 kΩ**（5 Vへ）
 - **入力フィルタ（RC）**：A/B 各相 **10 kΩ + 0.01 µF（ノード→GND）**
@@ -46,7 +41,15 @@
 
 ![Schematic](docs/schematic.png)
 
-_エンコーダ部の実体配線図。スイッチ、LED配線は省略。_
+*エンコーダ部の実体配線図。スイッチ、LED配線は省略。*
+
+### 対応ピン
+- **デジタル入力**：**D0–D10, D14–D16, D18–D21**
+- **PWM（LED）**：**3 / 5 / 6 / 9 / 10**
+ 
+![Pro Micro ピンマップ（PWM ピン強調）](docs/pinout-ATmega32U4.png)
+
+*Pro Micro (ATmega32U4) のピン配置 — デジタル I/O のみ（アナログ／通信省略）*
 
 ---
 
@@ -158,6 +161,10 @@ constexpr unsigned long LED_PULSE_MS         = 60;
 
 ---
 
+## 依存ライブラリ
+- **MIDIUSB**（`<MIDIUSB.h>`）— Arduino公式の「MIDIUSB」ライブラリ（Leonardo/32U4対応）
+
+---
 ## トラブルシューティング
 - **DAW で相対 CC として動作しない**：**DAW 側**のノブ/エンコーダ設定を **Relative / Binary Offset** に設定。  
 - **方向が逆**：`ENCODER_INVERT` を `false` ↔ `true` に切り替え。
@@ -189,3 +196,5 @@ constexpr unsigned long LED_PULSE_MS         = 60;
 
 ## 変更履歴
 - **v1.0.0** 初版：フルサイクルゲーティング／デテント間隔ベース加速／出力ペーシング／ビルド時チェック／RC推奨回路／LED連動＆パルス対応／BOM掲載
+
+[ino-latest]: https://github.com/m43d4k/usb-midi-encoder-switch/releases/latest/download/usb_midi_encoder_switch.ino
