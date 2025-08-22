@@ -38,16 +38,14 @@
 
 ### Example wiring (recommended: external pull-ups + RC)
 
-![Schematic](docs/schematic.png)
-
+![Schematic](docs/schematic.png)  
 _Encoder section wiring diagram. Switch & LED wiring omitted._
 
 ### Pins
 - **Digital I/O**: **D0–D10, D14–D16, D18–D21**
 - **PWM (LED)**: **3 / 5 / 6 / 9 / 10**
 
-![Pro Micro pinout (ATmega32U4)](docs/pinout-ATmega32U4.png)
-
+![Pro Micro pinout (ATmega32U4)](docs/pinout-ATmega32U4.png)  
 *Pinout — Pro Micro (ATmega32U4), digital I/O only (analog/comms omitted)*
 
 ---
@@ -67,6 +65,9 @@ _Encoder section, assembly example (front; switches/LED omitted)_
 
 ![Build – Back](docs/build-back.jpg)
 _Encoder section, assembly example (back; switches/LED omitted)_
+
+![Build – Overview](docs/build-overview.jpg)
+_Assembled unit (overview)_
 
 ---
 

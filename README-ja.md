@@ -37,10 +37,8 @@
 - **LED**：3 mm（任意色）＋直列抵抗 **220–1 kΩ**（PWM ピンへ）
 - **デカップリング**：**0.47 µF（VCC–GND）**
 
-### 回路例（推奨：外付けプルアップ + RC フィルタ）
-
-![Schematic](docs/schematic.png)
-
+### 回路例（推奨：外付けプルアップ + RC フィルタ）  
+![Schematic](docs/schematic.png)  
 *エンコーダ部の実体配線図。スイッチ、LED配線は省略。*
 
 ### 対応ピン
@@ -48,7 +46,6 @@
 - **PWM（LED）**：**3 / 5 / 6 / 9 / 10**
  
 ![Pro Micro ピンマップ（PWM ピン強調）](docs/pinout-ATmega32U4.png)
-
 *Pro Micro (ATmega32U4) のピン配置 — デジタル I/O のみ（アナログ／通信省略）*
 
 ---
@@ -68,6 +65,9 @@ _エンコーダ部の実装例（表・スイッチ・LED省略）_
 
 ![Build – Back](docs/build-back.jpg)
 _エンコーダ部の実装例（裏・スイッチ・LED省略）_
+
+![Build – Overview](docs/build-overview.jpg)
+_完成例（外観）_
 
 ---
 
